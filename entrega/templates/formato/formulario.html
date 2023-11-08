@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<form action="" method="post">
+{% csrf_token %}
+
+    <label >Ingrese el nombre de usuario: </label>
+    <input type="text" name = "nombre_completo">
+
+
+    <label >Ingrese el correo: </label>
+    <input type="text" name = "correo">
+
+    <label > Ingrese un mensaje: </label>
+    <input type="text" name = "mensaje">
+
+    <label >Ingrese tipo de contacto: </label>
+    <input type="date" name = "tipo_de_contacto">
+
+    <label >Ingrese la suscripción: </label>
+    <input type="checkbox" name = "suscripción">
+
+    <label for="imagen">Ima
+{% endblock contenido %}
