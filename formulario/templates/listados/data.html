@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<p class="text-primary">.tu texto fue cargado con éxito</p>
+{% for objeto in listados%}
+        <p>El nombre es: {{ objeto.nombre_completo }} </p>
+
+        <p>El correo es: {{ objeto.correo }} </p>
+
+        <!-- Verificando el tipo de contacto y mostrando el mensaje correspondiente -->
+        {% if objeto.tipo_de_contacto == 1 %}
+            <p>El tipo de contacto es: correo </p>
+        {% elif objeto.tipo_de_contacto == 0 %}
+            <p>El tipo de contacto es: telefono </p>
+        {% endif %}
+
+        <hr> <!-- Línea horizontal -->
+
+    {% endfor %}
+
+{% endblock contenido %}
