@@ -73,37 +73,36 @@ def buscar_informacion(request):
         return http_response 
 
 def crear_usuario(request):
-        
     if request.method == "POST":
-        formulario = Formulario_Investigar(request.POST)
+        formulario = Formulario_crear(request.POST)
 
         if formulario.is_valid():
-            
-            data = formulario.cleaned_data  
-            usuario = data["usuario"]
+            data = formulario.cleaned_data
+            usuario= data["usuario"]
             contraseña = data["contraseña"]
-            informacion = investigar(
-                usuario=usuario, 
-                contraseña=contraseña,
-                )
-            informacion.save()  
-            return redirect("mostrar_información")
+           
 
+            informacion = crear(
+                usuario=usuario,
+                contraseña=contraseña,
+        
+            )
+            informacion.save()
+            return redirect("mostrar_información")
     else:  
 
-        formulario = Formulario_Investigar()
-        
-        http_response = render(
-        request=request,
-        template_name='formularios/login.html',
-        context={'formulario': formulario} )
+            formulario = Formulario_crear()
+            http_response = render(
+            request=request,
+            template_name='formularios/login.html',
+            context={'formulario': formulario} )
 
-        return http_response
+            return http_response
 
 def crear_detalles(request):
         
     if request.method == "POST":
-        formulario = Formulario_Investigar(request.POST)
+        formulario = Formulario_detallar(request.POST)
 
         if formulario.is_valid():
             
@@ -119,7 +118,7 @@ def crear_detalles(request):
 
     else:  
 
-        formulario = Formulario_Investigar()
+        formulario = Formulario_detallar()
         
         http_response = render(
         request=request,
