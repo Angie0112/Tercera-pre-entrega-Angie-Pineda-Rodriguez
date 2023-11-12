@@ -88,7 +88,7 @@ def crear_usuario(request):
         
             )
             informacion.save()
-            return redirect("mostrar_información")
+            return redirect("mostrar_usuario")
     else:  
 
             formulario = Formulario_crear()
@@ -97,7 +97,16 @@ def crear_usuario(request):
             template_name='formularios/login.html',
             context={'formulario': formulario} )
 
+
             return http_response
+            
+def mostrar_usuario(request):
+    base_datos= crear.objects.all()
+    http_response = render(
+        request=request,
+        template_name='listados/usuario.html',
+        context={'listados':base_datos} )
+    return http_response
 
 def crear_detalles(request):
         

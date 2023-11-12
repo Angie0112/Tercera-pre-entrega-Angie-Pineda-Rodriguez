@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<p class="text-primary">.tu texto fue cargado con éxito</p>
+{% for objeto in listados%}
+        <p>El usuario es: {{ objeto.usuario }} </p>
+
+        <p>El contraseña es: {{ objeto.contraseña }} </p>
+
+            <p>El usuario  es:  </p>
+            <p>la contraseña es:  </p>
+      
+
+        <hr> 
+
+    {% endfor %}
+
+{% endblock contenido %}
