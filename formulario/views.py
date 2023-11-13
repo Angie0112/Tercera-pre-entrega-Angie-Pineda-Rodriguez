@@ -118,12 +118,12 @@ def crear_detalles(request):
             data = formulario.cleaned_data  
             compra = data["compra"]
             detalles_envio= data["detalles_envio"]
-            informacion = investigar(
+            informacion = detallar(
                 compra=compra, 
                 detalles_envio=detalles_envio,
                 )
             informacion.save()  
-            return redirect("mostrar_información")
+            return redirect("mostrar_detalles")
 
     else:  
 
@@ -131,9 +131,16 @@ def crear_detalles(request):
         
         http_response = render(
         request=request,
-        template_name='formularios/detalles.html',
+        template_name='formularios/entrega.html',
         context={'formulario': formulario} )
 
         return http_response
-
+            
+def mostrar_detalles(request):
+    base_datos= detallar.objects.all()
+    http_response = render(
+        request=request,
+        template_name='listados/detalle.html',
+        context={'listados':base_datos} )
+    return http_response
 

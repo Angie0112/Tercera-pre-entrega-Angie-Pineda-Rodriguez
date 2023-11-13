@@ -8,4 +8,4 @@ urlpatterns = [
     path("crear-usuario/", crear_usuario, name="crear_usuario"),
     path("mostrar-usuario/", mostrar_usuario, name="mostrar_usuario"),
     path("crear-detalles/", crear_detalles, name="crear_detalles"),
-    path("mostrar-detalles/", crear_detalles, name="crear_detalles")]
+    path("mostrar-detalles/", mostrar_detalles, name="mostrar_detalles")]

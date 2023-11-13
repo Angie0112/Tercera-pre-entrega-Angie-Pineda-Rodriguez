@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<p class="text-primary">.tu texto fue cargado con éxito</p>
+{% for objeto in listados%}
+        <p>La compra es  es: {{ objeto.compra }} </p>
+
+        <p>Los detalles del envio son es: {{ objeto.detalles_envio}} </p>
+
+            <p>La compra  es:  </p>
+            <p>Los detalles del envio son:  </p>
+      
+
+        <hr> 
+
+    {% endfor %}
+
+{% endblock contenido %}
